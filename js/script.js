@@ -116,7 +116,7 @@ function attacking() {
         fighter2.style.width = '20%'
         fighter2.style.height = '75%'
       }, 850);
-    } else {
+    } else if(attackingInfoGroup.random.defence !== attackingInfoGroup.user.attack) {
       if (selectedFighters.random.name !== 'SMOKE') {
         setTimeout(() => {
           fighter2.attributes.src.value = selectedFighters.random.images.gothit
@@ -129,10 +129,8 @@ function attacking() {
           if (attackingInfoGroup.random.hp) {
             fighter2.attributes.src.value = selectedFighters.random.images.stand
           } else {
-            console.log('user is attacking', attackingInfoGroup.random.hp)
             fighter2.attributes.src.value = selectedFighters.random.images.lose
             fighter1.attributes.src.value = selectedFighters.user.images.win
-            console.log(attackingInfo)
             attackingInfo.classList.remove('active')
             restartBtn.classList.add('active')
           }
@@ -149,10 +147,8 @@ function attacking() {
           if (attackingInfoGroup.random.hp) {
             fighter2.attributes.src.value = selectedFighters.random.images.stand
           } else {
-            console.log('user is attacking', attackingInfoGroup.random.hp)
             fighter2.attributes.src.value = selectedFighters.random.images.lose
             fighter1.attributes.src.value = selectedFighters.user.images.win
-            console.log(attackingInfo)
             attackingInfo.classList.remove('active')
             restartBtn.classList.add('active')
           }
@@ -184,8 +180,7 @@ function randomAttack() {
       attackingInfoGroup.nowAttacking = 'random'
     }
   }, 1000)
-  console.log(attackingInfoGroup)
-  if (attackingInfoGroup.user.defence === attackingInfoGroup.user.attack) {
+  if (attackingInfoGroup.user.defence === attackingInfoGroup.random.attack) {
     setTimeout(() => {
       fighter1.attributes.src.value = selectedFighters.user.images.block
     }, 350);
@@ -196,7 +191,7 @@ function randomAttack() {
       fighter1.style.width = '20%'
       fighter1.style.height = '75%'
     }, 850);
-  } else {
+  } else if(attackingInfoGroup.user.defence !== attackingInfoGroup.random.attack){
     if (selectedFighters.user.name !== 'SMOKE') {
       setTimeout(() => {
         fighter1.attributes.src.value = selectedFighters.user.images.gothit
@@ -231,10 +226,8 @@ function randomAttack() {
 
       setTimeout(() => {
         if (attackingInfoGroup.user.hp) {
-          console.log('random is attacking', attackingInfoGroup.user.hp)
           fighter1.attributes.src.value = selectedFighters.user.images.stand
         } else {
-          console.log('random is attacking', attackingInfoGroup.user.hp)
           fighter1.attributes.src.value = selectedFighters.user.images.lose
           if (attackingInfoGroup.random.hp) {
             fighter2.attributes.src.value = selectedFighters.random.images.win
