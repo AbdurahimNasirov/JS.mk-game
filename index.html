@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>MK-game</title>
+</head>
+
+<body>
+  <section class="selection active">
+    <h1 class="selection-title">Select your fighters</h1>
+    <div class="selection-fighters">
+      <ul class="selection-fighters-list">
+        <div class="selection-fighters-list-closelist">3</div>
+      </ul>
+      
+      <div class="selection-fighters-selected-fighter selection-fighters-selected-fighter-user">
+      </div>
+      <button class="fight-btn"></button>
+      <div class="selection-fighters-selected-fighter selection-fighters-selected-fighter-random">
+      </div>
+    </div>
+  </section>
+  <section class="fight">
+    <div class="fight-arena">
+      <div class="fight-arena-results">
+        <div class="fight-arena-results-hp fight-arena-results-hp-user">
+          <h4 class="fight-arena-results-hp-user-name"></h4>
+          <div class="fight-arena-results-hp-progress fight-arena-results-hp-progress-user"></div>
+        </div>
+        <button class="fight-arena-results-restart-btn">Restart</button>
+        <div class="fight-arena-results-hp fight-arena-results-hp-random">
+          <h4 class="fight-arena-results-hp-random-name"></h4>
+          <div class="fight-arena-results-hp-progress fight-arena-results-hp-progress-random"></div>
+        </div>
+      </div>
+      <div class="fight-arena-fighters">
+        <img src="./images/fighters/reptile/stand.gif" class="fighter fighter-1" id="player1" alt="">
+        <img src="./images/fighters/subzero/stand.gif" class="reverse fighter fighter-2" id="player2" alt="">
+      </div>
+      <div class="fight-arena-attack-defence">
+        <h2>ATTACK</h2>
+        <ul class="fight-arena-attack-list">
+          <li class="head-attack info-attack">HEAD</li>
+          <li class="body-attack info-attack">BODY</li>
+          <li class="food-attack info-attack">FOOT</li>
+        </ul>
+        <h2>DEFENCE</h2>
+        <ul class="fight-arena-defence-list">
+          <li class="head-defence info-defence">HEAD</li>
+          <li class="body-defence info-defence">BODY</li>
+          <li class="food-defence info-defence">FOOT</li>
+        </ul>
+        <button class="attackBtn">FIGHT</button>
+      </div>
+      <img src="./images/fight.gif" class="fight-img active" id="fight-img" alt="">
+      <h3 class="draw">Draw</h3>
+    </div>
+  </section>
+
+  <script src="./js/database.js"></script>
+  <script src="./js/variables.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

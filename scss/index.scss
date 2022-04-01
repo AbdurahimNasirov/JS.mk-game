@@ -1,0 +1,281 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Righteous';
+}
+
+
+li {
+  list-style: none;
+}
+
+.selection {
+  padding: 40px;
+  background: rgba(145, 142, 142, 0.986);
+  display: flex;
+  display: none;
+  align-items: center;
+  gap: 40px;
+  height: 100vh;
+  flex-direction: column;
+  &-title {
+    font-weight: 100;
+    font-size: 2rem;
+    color: black;
+  }
+  &-fighters {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-list {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      &-closelist {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.568);
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: none;
+        z-index: 5;
+        justify-content: center;
+        align-items: center;
+        font-size: 45px;
+      }
+      &-item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        transition: 0.3s all;
+        &-fighter {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    &-selected-fighter {
+      height: 40vh;
+      width: 10vw;
+      position: absolute; 
+      bottom: 20px ;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+      &-user {
+        left: 200px;
+      }
+      &-random {
+        right: 200px;
+        img {
+          transform: rotate3d(-2,100,6, 154deg);
+        }
+      }
+    }
+    .user-select-hover {
+      &::after {
+        content: "";
+        border: 10px solid rgb(31, 252, 31);
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        cursor: pointer;
+      }
+    }
+  }
+
+}
+.fight-btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background: yellow;
+  }
+  margin-top: 20px;
+}
+.reverse{
+  transform: rotate3d(-2,100,6, 154deg);
+}
+.fight {
+  background: #424466;
+  display: none;
+  &-arena {
+    width: 60%;
+    margin: 0 auto;
+    background-image: url('../images/place-scorpions.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    min-height: 100vh;
+    position: relative;
+    &-results {
+      position: absolute;
+      top: 0;
+      background: #000;
+      color: white;
+      justify-content: space-between;
+      width: 100%;
+      gap: 10px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      height: 10vh;
+      &-hp {
+        border-radius: 5px;
+        width: 30%;
+        border: 4px solid rgb(185, 185, 6);
+        height: 35px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &-progress {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          background: rgb(37, 37, 207);
+          width: 100%;
+          &-user {
+            left: 0;
+            width: 100%;
+          }
+          &-random {
+            right: 0;
+            width: 100%;
+          }
+        }
+
+        h4 {
+          font-size: 18px;
+          font-weight: 300;
+          z-index: 5;
+        }
+      }
+      &-restart-btn {
+        flex: 1;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+        transition: 0.3s;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:hover {
+          background: yellow;
+        }
+      }
+    }
+    &-fighters {
+      height: 65vh;
+      width: 100%;
+      position: relative;
+      padding: 0 15px;
+      .fighter {
+        width: 20%;
+        transition: 0.5s ;
+        &-2 {
+          position: absolute;
+          right: 10px;
+          left: inherit;
+        }
+        &-1 {
+          position: absolute;
+          left: 10px;
+          transform: scale(1);
+          right: inherit;
+        }
+      }
+      #player2 {
+        height: 75%;
+      }
+    }
+    &-attack-defence {
+      width: 60%;
+      position: absolute;
+      top: 15vh;
+      left: calc(50% - 30%);
+      background: hsla(0, 0%, 100%, 0.3);
+      height: 40vh;
+      padding: 0 40px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      button {
+        width: 30%;
+        margin: 10px auto;
+        padding: 6px 0;
+        font-size: 18px;
+        cursor: pointer;
+        &:hover {
+          background: rgb(31, 252, 31);
+        }
+        border-radius: 5px;
+        border: none;
+        outline: none;
+      }
+      h2 {
+        color: white;
+        text-align: center;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        font-size: 20px;
+      }
+      ul {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3,1fr);
+        li {
+          border-top: 4px solid orange ;
+          border-bottom: 4px solid orange ;
+          padding: 10px 0;
+          cursor: pointer;
+          text-align: center;
+          font-size: 16px;
+        }
+
+      }
+    }
+    &-attack-list {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.fight-img {
+  display: none;
+  position: absolute;
+  top: 180px;
+  right: calc(50% - 60px);
+}
+.draw {
+  position: absolute;
+  color: red;
+  top: 200px;
+  right: calc(50% - 50px);
+  display: none;
+  font-size: 40px;
+}
+.selected-info { 
+  background: orange;
+}
+.active {
+  display: flex;
+}

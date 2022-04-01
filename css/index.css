@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Righteous";
+}
+
+li {
+  list-style: none;
+}
+
+.selection {
+  padding: 40px;
+  background: rgba(145, 142, 142, 0.986);
+  display: flex;
+  display: none;
+  align-items: center;
+  gap: 40px;
+  height: 100vh;
+  flex-direction: column;
+}
+.selection-title {
+  font-weight: 100;
+  font-size: 2rem;
+  color: black;
+}
+.selection-fighters {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.selection-fighters-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.selection-fighters-list-closelist {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.568);
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  z-index: 5;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+}
+.selection-fighters-list-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: 0.3s all;
+}
+.selection-fighters-list-item-fighter {
+  width: 100%;
+  height: 100%;
+}
+.selection-fighters-selected-fighter {
+  height: 40vh;
+  width: 10vw;
+  position: absolute;
+  bottom: 20px;
+}
+.selection-fighters-selected-fighter img {
+  width: 100%;
+  height: 100%;
+}
+.selection-fighters-selected-fighter-user {
+  left: 200px;
+}
+.selection-fighters-selected-fighter-random {
+  right: 200px;
+}
+.selection-fighters-selected-fighter-random img {
+  transform: rotate3d(-2, 100, 6, 154deg);
+}
+.selection-fighters .user-select-hover::after {
+  content: "";
+  border: 10px solid rgb(31, 252, 31);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.fight-btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+.fight-btn:hover {
+  background: yellow;
+}
+
+.reverse {
+  transform: rotate3d(-2, 100, 6, 154deg);
+}
+
+.fight {
+  background: #424466;
+  display: none;
+}
+.fight-arena {
+  width: 60%;
+  margin: 0 auto;
+  background-image: url("../images/place-scorpions.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 20px;
+  min-height: 100vh;
+  position: relative;
+}
+.fight-arena-results {
+  position: absolute;
+  top: 0;
+  background: #000;
+  color: white;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 10vh;
+}
+.fight-arena-results-hp {
+  border-radius: 5px;
+  width: 30%;
+  border: 4px solid rgb(185, 185, 6);
+  height: 35px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fight-arena-results-hp-progress {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgb(37, 37, 207);
+  width: 100%;
+}
+.fight-arena-results-hp-progress-user {
+  left: 0;
+  width: 100%;
+}
+.fight-arena-results-hp-progress-random {
+  right: 0;
+  width: 100%;
+}
+.fight-arena-results-hp h4 {
+  font-size: 18px;
+  font-weight: 300;
+  z-index: 5;
+}
+.fight-arena-results-restart-btn {
+  flex: 1;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.fight-arena-results-restart-btn:hover {
+  background: yellow;
+}
+.fight-arena-fighters {
+  height: 65vh;
+  width: 100%;
+  position: relative;
+  padding: 0 15px;
+}
+.fight-arena-fighters .fighter {
+  width: 20%;
+  transition: 0.5s;
+}
+.fight-arena-fighters .fighter-2 {
+  position: absolute;
+  right: 10px;
+  left: inherit;
+}
+.fight-arena-fighters .fighter-1 {
+  position: absolute;
+  left: 10px;
+  transform: scale(1);
+  right: inherit;
+}
+.fight-arena-fighters #player2 {
+  height: 75%;
+}
+.fight-arena-attack-defence {
+  width: 60%;
+  position: absolute;
+  top: 15vh;
+  left: 20%;
+  background: hsla(0deg, 0%, 100%, 0.3);
+  height: 40vh;
+  padding: 0 40px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+.fight-arena-attack-defence button {
+  width: 30%;
+  margin: 10px auto;
+  padding: 6px 0;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+.fight-arena-attack-defence button:hover {
+  background: rgb(31, 252, 31);
+}
+.fight-arena-attack-defence h2 {
+  color: white;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-size: 20px;
+}
+.fight-arena-attack-defence ul {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+}
+.fight-arena-attack-defence ul li {
+  border-top: 4px solid orange;
+  border-bottom: 4px solid orange;
+  padding: 10px 0;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+}
+.fight-arena-attack-list {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fight-img {
+  display: none;
+  position: absolute;
+  top: 180px;
+  right: calc(50% - 60px);
+}
+
+.draw {
+  position: absolute;
+  color: red;
+  top: 200px;
+  right: calc(50% - 50px);
+  display: none;
+  font-size: 40px;
+}
+
+.selected-info {
+  background: orange;
+}
+
+.active {
+  display: flex;
+}
+
+/*# sourceMappingURL=index.css.map */
